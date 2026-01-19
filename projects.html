@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GIS Projects - Spatial Analysis Portfolio">
+    <title>On Space and Cities</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo">On Space and Cities</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Projects</h1>
+        <p>A collection of spatial analysis and GIS projects exploring urban patterns, environmental data, and geographic insights through advanced geospatial techniques.</p>
+    </section>
+
+    <!-- Projects Grid -->
+    <main>
+        <section class="content-section">
+            <div class="projects-grid">
+                <!-- Project 1: CBD Delineation -->
+                <a href="project-cbd.html" class="project-card-preview">
+                    <img src="assets/img/bintaro_jaya_cbd.png" alt="Bintaro Jaya CBD" class="project-thumbnail">
+                    <h3>CBD Delineation in South Tangerang City</h3>
+                    <p class="project-meta-preview">2026</p>
+                    <p>Central Business District delineation analysis using a multi-criteria spatial approach to identify the characteristics and boundaries of the CBD area.</p>
+                </a>
+
+                <!-- Project 2: Urban Green Space -->
+                <!--a href="#" class="project-card-preview">
+                    <img src="https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=800&h=600&fit=crop" alt="Green Space Analysis" class="project-thumbnail">
+                    <h3>Urban Green Space Analysis</h3>
+                    <p class="project-meta-preview">2024 · Remote Sensing · NDVI</p>
+                    <p>Pemetaan dan analisis distribusi ruang terbuka hijau (RTH) di kawasan perkotaan menggunakan data citra satelit dan analisis NDVI. Penelitian ini mengevaluasi ketersediaan dan aksesibilitas RTH terhadap pemukiman penduduk.</p>
+                </a>
+
+                <!-- Project 3: Transit Accessibility -->
+                <!--a href="#" class="project-card-preview">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop" alt="Transit Accessibility" class="project-thumbnail">
+                    <h3>Transit Accessibility Mapping</h3>
+                    <p class="project-meta-preview">2023 · Network Analysis · Isochrone</p>
+                    <p>Analisis aksesibilitas transportasi publik menggunakan metode isochrone dan network analysis. Proyek ini memetakan jangkauan layanan transportasi umum dan mengidentifikasi area dengan aksesibilitas rendah.</p>
+                </a>
+
+                <!-- Project 4: Flood Risk Assessment -->
+                <!--a href="#" class="project-card-preview">
+                    <img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?w=800&h=600&fit=crop" alt="Flood Risk" class="project-thumbnail">
+                    <h3>Flood Risk Assessment</h3>
+                    <p class="project-meta-preview">2023 · Hazard Mapping · DEM Analysis</p>
+                    <p>Pemetaan zona rawan banjir menggunakan analisis DEM, curah hujan, dan karakteristik DAS. Hasil analisis memberikan rekomendasi untuk mitigasi risiko bencana banjir di area perkotaan.</p>
+                </a>
+
+                <!-- Project 5: Land Use Change -->
+                <!--a href="#" class="project-card-preview">
+                    <img src="https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&h=600&fit=crop" alt="Land Use Change" class="project-thumbnail">
+                    <h3>Land Use Change Detection</h3>
+                    <p class="project-meta-preview">2023 · Multi-temporal Analysis · Landsat</p>
+                    <p>Analisis perubahan penggunaan lahan dalam periode 10 tahun menggunakan klasifikasi citra Landsat. Proyek ini mengidentifikasi pola dan tren perubahan tutupan lahan di kawasan metropolitan.</p>
+                </a>
+
+                <!-- Project 6: Population Density -->
+                <!--a href="#" class="project-card-preview">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&h=600&fit=crop" alt="Population Density" class="project-thumbnail">
+                    <h3>Population Density Mapping</h3>
+                    <p class="project-meta-preview">2023 · Dasymetric Mapping · Census Data</p>
+                    <p>Pemetaan kepadatan penduduk dengan metode dasymetric menggunakan data sensus dan land use. Visualisasi spasial memberikan insight distribusi populasi yang lebih akurat dibanding metode choropleth tradisional.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="content-section text-center">
+            <h2 class="section-title">Interested in Collaboration?</h2>
+            <p style="font-size: 1.05rem; color: var(--color-text-light); line-height: 1.8; max-width: 600px; margin: 2rem auto;">
+                I am open to casual discussions—deep ones are equally welcome—on geography, spatial analysis, urban studies, and regional planning.
+                Let's collaborate, learn from one another, and exchange ideas for the sustainability of urban life today and in the future.
+            </p>
+            <a href="about.html" class="view-map-btn" style="margin-top: 2rem;">Get In Touch</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Izza Prasatya Arief</p>
+    </footer>
+
+    <!-- JavaScript for animations -->
+    <script>
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.project-card-preview').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

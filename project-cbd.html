@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CBD Delineation in South Tangerang City - GIS Project">
+    <title>CBD Delineation - GIS Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo">On Space and Cities</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- Project Detail Content -->
+    <article class="project-detail">
+        <!-- Project Header -->
+        <header class="project-header">
+            <span class="project-number">PROJECT 01</span>
+            <h1>CBD Delineation in South Tangerang City</h1>
+        </header>
+
+        <!-- Project Meta Information -->
+        <div class="project-meta">
+            <div class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">2026</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Tools</span>
+                <span class="meta-value">QGIS 3.40, Python, Felt</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Methods</span>
+                <span class="meta-value">Spatial Analysis, Network Analysis, Kernel Density</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">South Tangerang, Banten, Indonesia</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Data Sources</span>
+                <span class="meta-value">OpenStreetMap, BIG, WorldPop, GHSL</span>
+            </div>
+        </div>
+
+        <!-- Project Content -->
+        <div class="project-content">
+            <h2>Background</h2>
+            <p>
+                Central Business District (CBD) merupakan pusat kegiatan ekonomi dan bisnis di suatu kota yang memiliki 
+                karakteristik kepadatan tinggi aktivitas komersial, aksesibilitas superior, dan konsentrasi fasilitas 
+                perkantoran. Kota Tangerang Selatan sebagai kota berkembang pesat memerlukan identifikasi yang jelas 
+                terhadap area CBD-nya untuk mendukung perencanaan tata ruang yang lebih efektif.
+            </p>
+            <p>
+                Proyek ini bertujuan untuk melakukan delineasi CBD secara objektif menggunakan pendekatan analisis 
+                spasial berbasis data, menggantikan metode deliniasi konvensional yang lebih subjektif. Dengan menggunakan 
+                berbagai parameter spasial seperti kepadatan Point of Interest (POI), aksesibilitas jaringan jalan, 
+                dan intensitas penggunaan lahan, penelitian ini menghasilkan peta delineasi CBD yang akurat dan terukur.
+            </p>
+
+            <h2>Methodology</h2>
+            <p>
+                Penelitian ini menggunakan pendekatan multi-kriteria dengan beberapa tahapan analisis:
+            </p>
+            <p>
+                <strong>1. Data Collection & Preprocessing:</strong> Pengumpulan data Point of Interest (POI) dari OpenStreetMap, 
+                data jaringan jalan, data penggunaan lahan, dan data census block. Data kemudian dibersihkan dan 
+                distandarisasi dalam sistem koordinat yang seragam (WGS 84 / UTM Zone 48S).
+            </p>
+            <p>
+                <strong>2. Kernel Density Analysis:</strong> Analisis kepadatan kernel diterapkan pada POI komersial dan 
+                perkantoran untuk mengidentifikasi area dengan konsentrasi aktivitas ekonomi tertinggi. Bandwidth yang 
+                digunakan adalah 500 meter untuk menangkap pengaruh spasial lokal.
+            </p>
+            <p>
+                <strong>3. Network Analysis:</strong> Analisis aksesibilitas menggunakan network analysis untuk menghitung 
+                betweenness centrality pada jaringan jalan. Area dengan nilai centrality tinggi mengindikasikan lokasi 
+                strategis dengan aksesibilitas superior.
+            </p>
+            <p>
+                <strong>4. Overlay & Scoring:</strong> Integrasi berbagai layer analisis menggunakan weighted overlay dengan 
+                bobot: kepadatan POI (40%), aksesibilitas (30%), intensitas penggunaan lahan (20%), dan proximity ke 
+                fasilitas publik (10%). Hasil akhir berupa skor komposit yang menunjukkan tingkat kesesuaian sebagai CBD.
+            </p>
+            <p>
+                <strong>5. Delineation & Validation:</strong> Penentuan batas CBD berdasarkan threshold skor tertinggi 
+                (top 10 percentile) dan validasi hasil dengan observasi lapangan dan perbandingan dengan dokumen 
+                perencanaan tata ruang eksisting.
+            </p>
+
+            <h2>Key Findings</h2>
+            <p>
+                Hasil analisis mengidentifikasi tiga zona utama CBD di Tangerang Selatan: zona CBD primer di sekitar 
+                BSD City dengan karakteristik kepadatan tertinggi dan akses optimal, zona CBD sekunder di area Alam Sutera 
+                dan Bintaro yang menunjukkan pola emerging CBD, serta koridor komersial sepanjang Jalan Raya Serpong yang 
+                berfungsi sebagai penghubung antar zona CBD.
+            </p>
+            <p>
+                Pola spasial CBD menunjukkan model policentric dengan beberapa pusat aktivitas yang terdistribusi, 
+                berbeda dengan model monocentric tradisional. Temuan ini konsisten dengan karakteristik kota satelit 
+                modern yang berkembang sebagai extension dari metropolitan Jakarta.
+            </p>
+            <p>
+                Analisis aksesibilitas menunjukkan bahwa konektivitas jaringan jalan menjadi faktor determinan dalam 
+                pembentukan CBD, dengan area-area yang memiliki interchange rate tinggi cenderung berkembang menjadi 
+                pusat aktivitas ekonomi. Integrasi dengan sistem transportasi publik (Commuter Line, Bus Rapid Transit) 
+                juga menunjukkan korelasi positif dengan intensitas CBD.
+            </p>
+        </div>
+
+        <!-- WebGIS Embed -->
+        <div class="project-visual">
+          <iframe width="100%"
+          height="488"
+          frameborder="0"
+          title="Felt Map"
+          src="https://felt.com/embed/map/CBD-Delineation-in-South-Tangerang-City-FE71a0ANTE2qsH9CNVs9BHUB?loc=-6.242835%2C106.652676%2C16z&legend=0&cooperativeGestures=1&link=1&geolocation=0&zoomControls=1&scaleBar=0"
+          referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+
+        <div class="project-content">
+            <h2>Implications & Recommendations</h2>
+            <p>
+                Hasil delineasi CBD ini memiliki implikasi signifikan untuk perencanaan kota. Pertama, identifikasi 
+                area CBD yang akurat dapat menjadi dasar untuk penetapan zoning regulation yang lebih tepat, termasuk 
+                building height restrictions, floor area ratio, dan land use designation.
+            </p>
+            <p>
+                Kedua, pemahaman terhadap struktur policentric CBD dapat menginformasikan strategi decentralization 
+                development untuk mengurangi congestion di single core area. Pengembangan infrastruktur dan fasilitas 
+                publik dapat diprioritaskan untuk memperkuat konektivitas antar CBD zones.
+            </p>
+            <p>
+                Ketiga, koridor-koridor komersial yang teridentifikasi dapat dikembangkan sebagai transit-oriented 
+                development (TOD) zones, mengintegrasikan land use dan transportasi untuk menciptakan urban environment 
+                yang lebih sustainable dan liveable.
+            </p>
+            <p>
+                Untuk penelitian lanjutan, disarankan untuk mengintegrasikan temporal analysis untuk memahami evolusi 
+                CBD dari waktu ke waktu, serta melakukan comparative analysis dengan kota-kota satelit lain di Jabodetabek 
+                untuk memahami pola spasial yang lebih luas.
+            </p>
+
+            <a href="https://felt.com/embed/map/CBD-Delineation-in-South-Tangerang-City-FE71a0ANTE2qsH9CNVs9BHUB?loc=-6.240598%2C106.653969%2C15.94z" target="_blank" class="view-map-btn">
+                Explore Interactive Map
+            </a>
+        </div>
+
+        <!-- Project Navigation -->
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+            <a href="projects.html" style="color: var(--color-text-light); font-size: 0.9rem; transition: var(--transition);"
+               onmouseover="this.style.color='var(--color-text)'" 
+               onmouseout="this.style.color='var(--color-text-light)'">
+                ← Back to Projects
+            </a>
+            <a href="#" style="color: var(--color-text-light); font-size: 0.9rem; transition: var(--transition);"
+               onmouseover="this.style.color='var(--color-text)'" 
+               onmouseout="this.style.color='var(--color-text-light)'">
+                Next Project →
+            </a>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Izza Prasatya Arief</p>
+    </footer>
+</body>
+</html>

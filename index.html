@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio GIS - Spatial Analysis & Geographic Insights">
+    <title>On Space and Cities</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo">On Space and Cities</a>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Geography, Urban Studies &<br>Spatial Analysis</h1>
+        <p>A city is a complex entity that can be analyzed both scientifically and socially. Geography bridges these perspectives, helping transform the city from a measurable object into a meaningful place shaped by human experience.
+</p>
+        <iframe width="100%"
+        height="500"
+        frameborder="0"
+        title="South Tangerang City in 1967"
+        src="https://felt.com/embed/map/Before-planning-ever-took-shape-s9Bd1gMRmSsmDp0h3UZTzrD?loc=-6.284599%2C106.72832%2C16.71z&legend=1&cooperativeGestures=1&link=1&geolocation=0&zoomControls=1&scaleBar=0"
+        referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+        <h3>USGS Declassified data | OpenStreetMap</h3>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <main>
+        <section class="content-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <a href="project-cbd.html" class="project-card-preview">
+                    <img src="assets/img/bintaro_jaya_cbd.png" alt="Bintaro Jaya CBD" class="project-thumbnail">
+                    <h3>CBD Delineation in South Tangerang</h3>
+                    <p class="project-meta-preview">2026 </p>
+                    <p>Central Business District delineation analysis using a multi-criteria spatial approach to identify the characteristics and boundaries of the CBD area.</p>
+                </a>
+
+                <!-- Project 2 -->
+                <!--a href="#" class="project-card-preview">
+                    <img src="https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=800&h=600&fit=crop" alt="Green Space Analysis" class="project-thumbnail">
+                    <h3>Urban Green Space Analysis</h3>
+                    <p class="project-meta-preview">2024 · Remote Sensing</p>
+                    <p>Pemetaan dan analisis distribusi ruang terbuka hijau menggunakan data citra satelit dan analisis NDVI.</p>
+                </a>
+
+                <!-- Project 3 -->
+                <!--a href="#" class="project-card-preview">
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop" alt="Transit Accessibility" class="project-thumbnail">
+                    <h3>Transit Accessibility Mapping</h3>
+                    <p class="project-meta-preview">2023 · Network Analysis</p>
+                    <p>Analisis aksesibilitas transportasi publik menggunakan metode isochrone dan network analysis.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="content-section">
+            <h2 class="section-title">About This Portfolio</h2>
+            <p style="font-size: 1.05rem; color: var(--color-text-light); line-height: 1.8; max-width: 800px;">
+                Cities are always fascinating—whether discussed casually or examined in depth. To speak about the city is to delve into the deepest layers of human anthropology,
+                intertwined with a multitude of complex forces that make it endlessly compelling to study. The city is an entity that is never complete.
+                This modest portfolio exists to express my seriousness and affection for urban studies.
+            </p>
+            <a href="about.html" class="view-map-btn" style="margin-top: 2rem;">Learn More About Me</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Izza Prasatya Arief</p>
+    </footer>
+
+    <!-- JavaScript for animations -->
+    <script>
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.content-section, .project-card-preview').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

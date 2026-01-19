@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About - GIS Specialist & Spatial Analyst">
+    <title>On Space and Cities</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo">On Space and Cities</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html" class="active">About</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About Me</h1>
+        <p>A half-boiled geographer and an urbanist. Loves coffee and doing spatial analysis casually.</p>
+    </section>
+
+    <!-- About Content -->
+    <main>
+        <div class="about-content">
+            <!-- Sidebar -->
+            <aside class="about-sidebar">
+                <img src="assets/img/me.png" alt="Profile" class="profile-image">
+                
+                <div class="contact-info">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--sans);">Contact</h3>
+                    <a href="mailto:prasatyaizza@gmail.com">prasatyaizza@gmail.com</a>
+                    <a href="https://linkedin.com/in/prasatyaizza" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/izzaprasatya" target="_blank">GitHub</a>
+                    <a href="https://medium.com/@melatir" target="_blank">Medium</a>
+                </div>
+
+                <div class="contact-info">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; font-family: var(--sans);">Location</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light);">
+                        South Jakarta, DKI Jakarta<br>
+                        Indonesia
+                    </p>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="about-main">
+                <p>
+                    At first, I wanted to call myself a hard-boiled geographer, inspired by the fictional character Philip Marlowe—the hard-boiled detective
+                    created by Raymond Chandler in The Long Goodbye. Yet I soon realized that such a label felt premature. My geographical capacity is still
+                    something to be explored and deepened. I have a long journey ahead before I could ever become a hard-boiled geographer. This realization
+                    made me aware that, for now, I am still a half-boiled geographer, one in the process of becoming.
+                </p>
+                <p>
+                    I earned a Bachelor of Arts in Geography, with a specialization in physical geography, focusing on geomorphology, hydrology, and climatology
+                    within the context of urban studies. Throughout my studies, I also developed a strong interest in urban geography, economic geography, and
+                    cultural geography. In my spare time, I enjoy writing reflective pieces on urban life and the quiet contemplations of the city.
+                </p>
+
+                <!-- Skills Grid -->
+                <h2>Technical Skills</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <h3>GIS Software</h3>
+                        <p>ArcGIS Pro, QGIS, GRASS, SAGA</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Programming</h3>
+                        <p>Python (pygrass, geospatial libraries), PostgreSQL/PostGIS</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Specialization</h3>
+                        <p>Geomorphology (fluvial, karst, volcano), Basin hydrology, Climatology, Urban studies, Regional planning, Spatial analysis, Remote sensing</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Spatial Analysis</h3>
+                        <p>Network analysis, Spatial statistics, Geoprocessing</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Data Visualization</h3>
+                        <p>Cartographic design, Semiotic mapping, 3D visualization</p>
+                    </div>
+                </div>
+
+                <a href="mailto:prasatyaizza@gmail.com" class="view-map-btn" style="margin-top: 2rem;">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Izza Prasatya Arief</p>
+    </footer>
+
+    <!-- JavaScript for animations -->
+    <script>
+        // Fade in animation for content
+        window.addEventListener('load', () => {
+            const aboutContent = document.querySelector('.about-content');
+            if (aboutContent) {
+                aboutContent.style.opacity = '0';
+                aboutContent.style.animation = 'fadeInUp 1s ease-out 0.3s forwards';
+            }
+        });
+    </script>
+</body>
+</html>
