@@ -43,7 +43,7 @@
             </div>
             <div class="meta-item">
                 <span class="meta-label">Methods</span>
-                <span class="meta-value">Spatial Analysis, Network Analysis, Kernel Density</span>
+                <span class="meta-value">Spatial Filtering, Spatial Weighting, Kernel Density Estimation, Urban Morphology, Neighborhood Density</span>
             </div>
             <div class="meta-item">
                 <span class="meta-label">Location</span>
@@ -59,16 +59,19 @@
         <div class="project-content">
             <h2>Background</h2>
             <p>
-                Central Business District (CBD) merupakan pusat kegiatan ekonomi dan bisnis di suatu kota yang memiliki 
-                karakteristik kepadatan tinggi aktivitas komersial, aksesibilitas superior, dan konsentrasi fasilitas 
-                perkantoran. Kota Tangerang Selatan sebagai kota berkembang pesat memerlukan identifikasi yang jelas 
-                terhadap area CBD-nya untuk mendukung perencanaan tata ruang yang lebih efektif.
+                Since my return to this country exactly six months ago, there has been one city to the west of my home that I frequently visit: South Tangerang.
+                The frequency of my visits to this city is driven by matters of the heart, which time and again compel reason to submit. And throughout my journeys
+                toward and through this city, there are many things I have observed—far too many, in fact, to be fully described here. One aspect that is perhaps
+                sufficiently spatial in nature is the concentration of activities within this city. This city possesses numerous activity centers, yet I am deeply
+                curious as to which of these centers are truly local in character, and which exhibit high levels of commercial activity, superior accessibility,
+                and a high concentration of office functions. The latter may also be referred to as a Central Business District (CBD).
             </p>
             <p>
-                Proyek ini bertujuan untuk melakukan delineasi CBD secara objektif menggunakan pendekatan analisis 
-                spasial berbasis data, menggantikan metode deliniasi konvensional yang lebih subjektif. Dengan menggunakan 
-                berbagai parameter spasial seperti kepadatan Point of Interest (POI), aksesibilitas jaringan jalan, 
-                dan intensitas penggunaan lahan, penelitian ini menghasilkan peta delineasi CBD yang akurat dan terukur.
+                This study aims to provide an overview of the CBD area in South Tangerang. Does South Tangerang have a single high-order activity center? Or does it,
+                in fact, have more than one? This is done by delineating CBD areas in South Tangerang. The study employs a data-driven spatial analysis approach, with
+                various parameters taken into account, such as the density of Points of Interest (POI) related to high-order activities, building density, road network
+                accessibility, and intersection density. Of course, this is also complemented by meaningful field observations, which I carried out while riding through
+                the streets of this city.
             </p>
 
             <h2>Methodology</h2>
@@ -76,88 +79,87 @@
                 Penelitian ini menggunakan pendekatan multi-kriteria dengan beberapa tahapan analisis:
             </p>
             <p>
-                <strong>1. Data Collection & Preprocessing:</strong> Pengumpulan data Point of Interest (POI) dari OpenStreetMap, 
-                data jaringan jalan, data penggunaan lahan, dan data census block. Data kemudian dibersihkan dan 
-                distandarisasi dalam sistem koordinat yang seragam (WGS 84 / UTM Zone 48S).
+                <strong>1. Spatial Filtering:</strong> This is applied to POI and road data, because only certain categories are required for this study. For POI data, categories such as banks,
+                hospitals, universities, colleges, malls, and department stores are the main characteristics of a CBD. Meanwhile, for road data, only arterial roads and primary roads are used.
+            <p>
+                <strong>2. POI Weighting:</strong> Using the logic that high-order functions = higher weight, which is also linear with central place theory, weights are assigned to each POI based
+                on its high-order functions.
             </p>
             <p>
-                <strong>2. Kernel Density Analysis:</strong> Analisis kepadatan kernel diterapkan pada POI komersial dan 
-                perkantoran untuk mengidentifikasi area dengan konsentrasi aktivitas ekonomi tertinggi. Bandwidth yang 
-                digunakan adalah 500 meter untuk menangkap pengaruh spasial lokal.
+                <strong>3. Kernel Density Estimation:</strong> Estimation is carried out using weighted POI data, with a radius of 800 m. The 800 m radius is chosen because the characteristic of a
+                CBD is pedestrian accessibility, where people can normally walk within an 800 m threshold.
             </p>
             <p>
-                <strong>3. Network Analysis:</strong> Analisis aksesibilitas menggunakan network analysis untuk menghitung 
-                betweenness centrality pada jaringan jalan. Area dengan nilai centrality tinggi mengindikasikan lokasi 
-                strategis dengan aksesibilitas superior.
+                <strong>4. Building-form Intensity:</strong> Using building data, neighborhood density is calculated through focal statistics to examine floor-area concentration and vertical/horizontal
+                urban intensity.
             </p>
             <p>
-                <strong>4. Overlay & Scoring:</strong> Integrasi berbagai layer analisis menggunakan weighted overlay dengan 
-                bobot: kepadatan POI (40%), aksesibilitas (30%), intensitas penggunaan lahan (20%), dan proximity ke 
-                fasilitas publik (10%). Hasil akhir berupa skor komposit yang menunjukkan tingkat kesesuaian sebagai CBD.
+                <strong>5. Accessibility Analysis:</strong> For the filtered road data, intersection density analysis is conducted to observe the density of road intersections. After that, Kernel Density
+                Estimation is applied for interpretative purposes, based on the logic that high intersection density = high route choice.
             </p>
             <p>
-                <strong>5. Delineation & Validation:</strong> Penentuan batas CBD berdasarkan threshold skor tertinggi 
-                (top 10 percentile) dan validasi hasil dengan observasi lapangan dan perbandingan dengan dokumen 
-                perencanaan tata ruang eksisting.
+                <strong>6. Data Normalization:</strong> POI data, building density, and accessibility density are converted into raster format and then normalized using the formula
+                ("raster@1" − minimum("raster@1")) / (maximum("raster@1") − minimum("raster@1")).
+            </p>
+             <p>
+                <strong>7. Spatial Weighting:</strong> Following the normalization process, the three datasets are integrated using a weighted linear combination. The weights are assigned based on their relative importance, as defined in the following equation:
+            </p>
+            <p>
+                <em>CBD Index</em> = (0.4 × α) + (0.35 × β) + (0.25 × γ)
+            </p>
+            <p>
+                where:
+                <br>α = Normalized Point of Interest (POI) density
+                <br>β = Normalized building density
+                <br>γ = Normalized accessibility index
+            </p>
+            <p>
+                <strong>8. CBD Delineation:</strong> The result of the CBD Index displays areas with high-order activity at varying intensity levels. In this study, areas with the highest activity levels
+                are of particular interest, as these are the areas that tend to exhibit CBD characteristics. The delineation of these areas is the final stage of this analysis.
             </p>
 
             <h2>Key Findings</h2>
             <p>
-                Hasil analisis mengidentifikasi tiga zona utama CBD di Tangerang Selatan: zona CBD primer di sekitar 
-                BSD City dengan karakteristik kepadatan tertinggi dan akses optimal, zona CBD sekunder di area Alam Sutera 
-                dan Bintaro yang menunjukkan pola emerging CBD, serta koridor komersial sepanjang Jalan Raya Serpong yang 
-                berfungsi sebagai penghubung antar zona CBD.
+                Actually, when my curiosity about the CBD in this city reached its peak, I formulated the following hypothesis: South Tangerang essentially has CBD in its self-contained new towns developed by
+                Alam Sutera, Bintaro Jaya, and Bumi Serpong Damai. The characteristic of these new towns is that each possesses its own CBD, although the definition of a CBD that they construct does not
+                always align with classical Urban Geography literature. Indeed, the results of the CBD delineation in this study are located within these three new towns.
             </p>
             <p>
-                Pola spasial CBD menunjukkan model policentric dengan beberapa pusat aktivitas yang terdistribusi, 
-                berbeda dengan model monocentric tradisional. Temuan ini konsisten dengan karakteristik kota satelit 
-                modern yang berkembang sebagai extension dari metropolitan Jakarta.
+                Unlike the classical definition of a CBD, South Tangerang seems to “break” the classic CBD model. As can be seen on the map below, the CBDs in South Tangerang are dominated by modern
+                shop-houses and a limited number of high-rise buildings that can be counted on one’s fingers. In the 1950s, a geographer or planner would most likely have considered this not to be a
+                characteristic of a CBD, which traditionally required a dominance of economic activities housed in tall, multi-story buildings. However, every city is unique, and the passage of time also
+                produces contextual answers appropriate to its era. Although in form it does not follow the conventional morphological characteristics of a CBD, it still exhibits a dominance of mixed
+                retail + office + services + finance activities that serve wide catchment areas (not locally in nature), operate for extended hours, have high transaction intensity per unit area, and function
+                as the functional equivalents of CBD blocks.
             </p>
             <p>
-                Analisis aksesibilitas menunjukkan bahwa konektivitas jaringan jalan menjadi faktor determinan dalam 
-                pembentukan CBD, dengan area-area yang memiliki interchange rate tinggi cenderung berkembang menjadi 
-                pusat aktivitas ekonomi. Integrasi dengan sistem transportasi publik (Commuter Line, Bus Rapid Transit) 
-                juga menunjukkan korelasi positif dengan intensitas CBD.
+                Nevertheless, the CBDs in South Tangerang do receive academic support when referring to several well-known Urban Geography theories, such as those of Burgess, Hoyt, and Harris–Ullman,
+                which define the CBD functionally rather than morphologically.
             </p>
         </div>
 
         <!-- WebGIS Embed -->
         <div class="project-visual">
-          <iframe width="100%"
-          height="488"
-          frameborder="0"
-          title="Felt Map"
-          src="https://felt.com/embed/map/CBD-Delineation-in-South-Tangerang-City-FE71a0ANTE2qsH9CNVs9BHUB?loc=-6.242835%2C106.652676%2C16z&legend=0&cooperativeGestures=1&link=1&geolocation=0&zoomControls=1&scaleBar=0"
-          referrerpolicy="strict-origin-when-cross-origin">
-          </iframe>
+            <iframe width="100%"
+            height="488"
+            frameborder="0"
+            title="CBD Delineation Map"
+            src="https://felt.com/embed/map/CBD-Delineation-in-South-Tangerang-City-FE71a0ANTE2qsH9CNVs9BHUB?loc=-6.296317%2C106.662749%2C15.51z&legend=1&cooperativeGestures=1&link=1&geolocation=0&zoomControls=1&scaleBar=0"
+            referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
         </div>
 
         <div class="project-content">
             <h2>Implications & Recommendations</h2>
             <p>
-                Hasil delineasi CBD ini memiliki implikasi signifikan untuk perencanaan kota. Pertama, identifikasi 
-                area CBD yang akurat dapat menjadi dasar untuk penetapan zoning regulation yang lebih tepat, termasuk 
-                building height restrictions, floor area ratio, dan land use designation.
+                The results of this CBD delineation are highly beneficial for urban planning. The identification of CBD areas has proved useful in establishing more appropriate zoning regulations,
+                including building height restrictions, floor area ratios, and land-use designation.
             </p>
             <p>
-                Kedua, pemahaman terhadap struktur policentric CBD dapat menginformasikan strategi decentralization 
-                development untuk mengurangi congestion di single core area. Pengembangan infrastruktur dan fasilitas 
-                publik dapat diprioritaskan untuk memperkuat konektivitas antar CBD zones.
+                In the field of transportation, these CBD areas can be further analyzed if, in the future, transit-oriented development (TOD) zones are to be developed here (where, according to the CBD
+                delineation in this study, almost all CBDs in South Tangerang are car-oriented, requiring private vehicles as the main mode of access to these areas. This is highly unsustainable and
+                not livable!).
             </p>
-            <p>
-                Ketiga, koridor-koridor komersial yang teridentifikasi dapat dikembangkan sebagai transit-oriented 
-                development (TOD) zones, mengintegrasikan land use dan transportasi untuk menciptakan urban environment 
-                yang lebih sustainable dan liveable.
-            </p>
-            <p>
-                Untuk penelitian lanjutan, disarankan untuk mengintegrasikan temporal analysis untuk memahami evolusi 
-                CBD dari waktu ke waktu, serta melakukan comparative analysis dengan kota-kota satelit lain di Jabodetabek 
-                untuk memahami pola spasial yang lebih luas.
-            </p>
-
-            <a href="https://felt.com/embed/map/CBD-Delineation-in-South-Tangerang-City-FE71a0ANTE2qsH9CNVs9BHUB?loc=-6.240598%2C106.653969%2C15.94z" target="_blank" class="view-map-btn">
-                Explore Interactive Map
-            </a>
         </div>
 
         <!-- Project Navigation -->
