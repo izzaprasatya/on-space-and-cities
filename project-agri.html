@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <meta name="description" content="Agricultural Health in the Vicinity of Rural Settlements around Lake Manyas (Balıkesir–Bursa, Türkiye) using NDVI, NDMI, NDWI and WebGIS." />
+    <title>Rural Settlement's Agriculture - GIS Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+        /* Small additions for this page only (optional) */
+        .project-content ul {
+            margin: 1rem 0 1.5rem 1.2rem;
+            color: var(--color-text);
+        }
+
+        .project-content li {
+            margin: 0.35rem 0;
+        }
+
+        .figure {
+            margin: 2rem 0;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1rem;
+            background: #fff;
+        }
+
+        .figure img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .figure figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.92rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            background: #fff;
+            margin: 1.5rem 0 2rem;
+        }
+
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 680px;
+        }
+
+        .data-table thead th {
+            text-align: left;
+            padding: 0.9rem 1rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text);
+            background: rgba(0,0,0,0.02);
+        }
+
+        .data-table tbody td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid var(--color-border);
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .note {
+            padding: 1rem 1.1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.02);
+            color: var(--color-text);
+            line-height: 1.7;
+            margin: 1.25rem 0 2rem;
+        }
+
+        .inline-math {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.95rem;
+            background: rgba(0,0,0,0.04);
+            padding: 0.15rem 0.4rem;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo">On Space and Cities</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- Project Detail Content -->
+    <article class="project-detail">
+        <!-- Project Header -->
+        <header class="project-header">
+            <span class="project-number">2023</span>
+            <h1>Agriculture in the Vicinity of Rural Settlements</h1>
+        </header>
+
+        <!-- Project Meta Information -->
+        <div class="project-meta">
+            <div class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">2023</span>
+            </div>
+
+            <div class="meta-item">
+                <span class="meta-label">Tools</span>
+                <span class="meta-value">QGIS 3.28, Felt</span>
+            </div>
+
+            <div class="meta-item">
+                <span class="meta-label">Methods</span>
+                <span class="meta-value">Remote Sensing, Zonal Statistics, Map Algebra</span>
+            </div>
+
+            <div class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Balıkesir–Bursa, Türkiye</span>
+            </div>
+
+            <div class="meta-item">
+                <span class="meta-label">Data Sources</span>
+                <span class="meta-value">Sentinel-2</span>
+            </div>
+        </div>
+
+        <!-- Project Content -->
+        <div class="project-content">
+            <h2>GIS & Remote Sensing reflections from a lowland plain in Marmara, Türkiye</h2>
+
+            <p>
+                GIS and Remote Sensing are two approaches that have proven themselves quietly useful within the practice of agriculture.
+                One of their many gifts is the ability to read the land without walking every cm of it, and to translate broad landscapes
+                into measurable conclusions of vegetation, moisture, and water signals.
+            </p>
+
+            <p>
+                In this short discourse, I examine the agricultural health of rural settlements surrounding Lake Manyas: a constellation of
+                villages that administratively belongs to Bursa Province and Balıkesir Province, both situated in the Marmara Region, in the
+                northwestern edge of Türkiye.
+            </p>
+
+            <p>
+                Agriculture around Lake Manyas is widely shaped by its setting: a lowland plain with fertile, water-influenced soils, where
+                farming tends to be productive and widespread. The lake itself is shallow freshwater, and its seasonal wet–dry cycles often
+                imprint themselves onto the surrounding fields. In general, the agricultural character here is commonly associated with cereals
+                such as wheat and barley, and oilseeds such as sunflower, with certain patches of land also influenced by wetland-edge moisture dynamics.
+            </p>
+
+            <h2>Methodology</h2>
+
+            <p>
+                To interpret agricultural condition across settlements, I employed a geographically simple spatial workflow:
+            </p>
+
+            <ul>
+                <li>1) Rural settlements were mapped as points.</li>
+                <li>2) A 900-meter buffer was created for each settlement to represent the nearby agricultural landscape within a short rural radius.</li>
+                <li>
+                    3) For each buffer, I extracted zonal statistics from three indices derived from satellite imagery:
+                    <ul>
+                        <li><strong>NDVI</strong> — vegetation vigor / greenness</li>
+                        <li><strong>NDMI</strong> — canopy or surface moisture condition</li>
+                        <li><strong>NDWI</strong> — water signal (wetter surfaces typically move closer to 0, sometimes positive)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>
+                In short: NDVI tells how alive the vegetation appears, while NDMI tells me how moist it remains, and NDWI hints whether water bodies /
+                wet surfaces are influencing the scene.
+            </p>
+
+            <div class="note">
+                <strong>Index reminder:</strong>
+                <span class="inline-math">High NDVI</span> does not always mean “best agriculture”.
+                It can also represent dense natural vegetation (forest) inside the buffer.
+                Thus, NDVI must be read together with <span class="inline-math">NDMI</span> and <span class="inline-math">NDWI</span>.
+            </div>
+
+            <h2>WebGIS</h2>
+
+            <!-- WebGIS Embed -->
+            <div class="project-visual">
+               <iframe width="100%"
+               height="488"
+               frameborder="0"
+               title="Felt Map"
+               src="https://felt.com/embed/map/Agricultural-Health-i5ox2s2PQwmU56403nFgHC?loc=40.14576%2C28.21226%2C13.55z&legend=1&cooperativeGestures=1&link=1&geolocation=0&zoomControls=1&scaleBar=1"
+               referrerpolicy="strict-origin-when-cross-origin">
+               </iframe>
+            </div>
+
+            <h2>Findings</h2>
+
+            <p>
+                Within the 900 m buffers, a settlement that stands out as one of the most convincing representations of healthy agricultural condition is
+                Yenisarıbey, with avg NDVI = 0.39 and avg NDMI = 0.30. These values indicate strong vegetation vigor accompanied by sufficient canopy moisture,
+                without the buffer being overly dominated by water-surface signal.
+            </p>
+
+            <p>
+                Meanwhile, the highest NDVI values belong to Doğancı (0.46) and Ömerler (0.42), yet these should be interpreted with care.
+                Their greenness can be influenced by the dominance of natural vegetation (forest) within the buffer, meaning the indices may represent summer vitality of
+                natural cover rather than purely agricultural productivity.
+            </p>
+
+            <p>
+                One notable outlier is Gölyaka, where avg NDVI = 0.09 but avg NDMI = 0.46 and avg NDWI = -0.07.
+                This suggests a landscape with a strong wet surface influence (wetland edge / proximity to water) where moisture is high, yet vegetation vigor is limited.
+            </p>
+
+            <h2>Charts</h2>
+
+            <!-- NOTE: Put these images inside /assets/img/ -->
+            <figure class="figure">
+                <img src="assets/img/manyas_ndvi_vs_ndmi.png" alt="NDVI vs NDMI scatter plot for rural settlements around Lake Manyas">
+                <figcaption>
+                    <strong>Figure 1.</strong> NDVI–NDMI relationship across rural settlements (900 m buffers).
+                    Yenisarıbey appears as a strong agricultural candidate (high NDVI with moderate NDMI),
+                    while Gölyaka shows wet-surface dominance (very high NDMI and wet NDWI, but low NDVI).
+                </figcaption>
+            </figure>
+
+            <figure class="figure">
+                <img src="assets/img/manyas_top12_ndvi.png" alt="Top 12 settlements by NDVI in Lake Manyas region">
+                <figcaption>
+                    <strong>Figure 2.</strong> Top settlements ranked by mean NDVI (vegetation vigor). The highest NDVI values can be influenced by
+                    non-agricultural vegetation within buffers (e.g., forest patches).
+                </figcaption>
+            </figure>
+
+            <figure class="figure">
+                <img src="assets/img/manyas_top12_ndwi.png" alt="Wettest settlements by NDWI in Lake Manyas region">
+                <figcaption>
+                    <strong>Figure 3.</strong> Wettest settlements by NDWI (values closer to 0 indicate stronger water/wet surface influence).
+                    These signatures often reflect wetland edges, water proximity, or temporarily inundated surfaces.
+                </figcaption>
+            </figure>
+
+            <h2>Tables</h2>
+
+            <p>
+                For an intuitive reading, I present two short tables: (1) the highest NDVI performers (greenness), and (2) the wettest NDWI settlements
+                (water influence). Both are necessary, because agricultural “health” is not merely greenness—but also moisture context.
+            </p>
+
+            <div class="table-wrap">
+                <table class="data-table" aria-label="Top NDVI settlements table">
+                    <thead>
+                        <tr>
+                            <th>Settlement</th>
+                            <th>Avg NDVI</th>
+                            <th>Avg NDMI</th>
+                            <th>Avg NDWI</th>
+                            <th>Interpretation Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Doğancı</td>
+                            <td>0.46</td>
+                            <td>0.27</td>
+                            <td>-0.45</td>
+                            <td><span class="pill">High NDVI, possible forest influence</span></td>
+                        </tr>
+                        <tr>
+                            <td>Ömerler</td>
+                            <td>0.42</td>
+                            <td>0.29</td>
+                            <td>-0.42</td>
+                            <td><span class="pill">High NDVI, possible natural cover</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kubaş</td>
+                            <td>0.39</td>
+                            <td>0.30</td>
+                            <td>-0.39</td>
+                            <td><span class="pill">Green & moderately moist</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Yenisarıbey</strong></td>
+                            <td><strong>0.39</strong></td>
+                            <td><strong>0.30</strong></td>
+                            <td><strong>-0.39</strong></td>
+                            <td><span class="pill">Best “agri-like” balance</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kızık</td>
+                            <td>0.39</td>
+                            <td>0.31</td>
+                            <td>-0.37</td>
+                            <td><span class="pill">High vigor & moisture</span></td>
+                        </tr>
+                        <tr>
+                            <td>Hacıyakup</td>
+                            <td>0.39</td>
+                            <td>0.32</td>
+                            <td>-0.37</td>
+                            <td><span class="pill">High vigor & moisture</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-wrap">
+                <table class="data-table" aria-label="Wettest NDWI settlements table">
+                    <thead>
+                        <tr>
+                            <th>Settlement</th>
+                            <th>Avg NDWI</th>
+                            <th>Avg NDVI</th>
+                            <th>Avg NDMI</th>
+                            <th>Interpretation Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Gölyaka</strong></td>
+                            <td><strong>-0.07</strong></td>
+                            <td>0.09</td>
+                            <td>0.46</td>
+                            <td><span class="pill">Wetland/water influence</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bereketli</td>
+                            <td>-0.23</td>
+                            <td>0.19</td>
+                            <td>0.38</td>
+                            <td><span class="pill">Wet surface signal</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kuşcenneti</td>
+                            <td>-0.23</td>
+                            <td>0.21</td>
+                            <td>0.39</td>
+                            <td><span class="pill">Near-water signature</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kocagöl</td>
+                            <td>-0.24</td>
+                            <td>0.18</td>
+                            <td>0.38</td>
+                            <td><span class="pill">Moist surface influence</span></td>
+                        </tr>
+                        <tr>
+                            <td>Hacımenteş</td>
+                            <td>-0.27</td>
+                            <td>0.25</td>
+                            <td>0.36</td>
+                            <td><span class="pill">Intermediate wetness</span></td>
+                        </tr>
+                        <tr>
+                            <td>Yenisığırcı</td>
+                            <td>-0.27</td>
+                            <td>0.19</td>
+                            <td>0.36</td>
+                            <td><span class="pill">Intermediate wetness</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Closing reflection</h2>
+
+            <p>
+                To read agriculture around Lake Manyas is to read a landscape negotiated by water.
+                Some buffers glow green because crops are well, some glow green because forests breathe fully in summer,
+                and some become wet signatures rather than productive fields. Yet in that complexity lies the beauty of GIS and Remote Sensing:
+                they do not merely give answers—they give patterns, and they ask us to interpret with humility.
+            </p>
+
+        </div> <!-- /project-content -->
+
+        <!-- Project Navigation -->
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+            <a href="projects.html"
+               style="color: var(--color-text-light); font-size: 0.9rem; transition: var(--transition);"
+               onmouseover="this.style.color='var(--color-text)'"
+               onmouseout="this.style.color='var(--color-text-light)'">
+                ← Back to Projects
+            </a>
+
+            <a href="project-cbd.html"
+               style="color: var(--color-text-light); font-size: 0.9rem; transition: var(--transition);"
+               onmouseover="this.style.color='var(--color-text)'"
+               onmouseout="this.style.color='var(--color-text-light)'">
+                Next Project →
+            </a>
+        </div>
+
+    </article>
+
+    <!-- Footer -->
+    <footer>
+        <p>© Izza Prasatya Arief</p>
+    </footer>
+</body>
+</html>
